@@ -19,7 +19,9 @@
         <activity android:name=".RegistroActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".ReportarActivity" />
-        <activity android:name=".ConsultarActivity"></activity>
+        <activity android:name=".ConsultarActivity" />
+        <activity android:name=".DelegacionActivity" />
+        <activity android:name=".TipoActivity"></activity>
     </application>
 
 </manifest>

@@ -2,7 +2,6 @@ package com.proyecto.bdd.seguridadcdmx;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,15 +15,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Date;
-
 public class ReportarActivity extends AppCompatActivity {
 
     private Button btn_fecha;
     private TextView txt_fecha;
     private int dia, mes = 7, ano = 2017;
     private RadioGroup radioGroup;
-    private RadioButton delito1, delito2, delito3, delito4;
+    private RadioButton secuestro, extorsion, homicidio, robo;
     private TextView txt_descripcion;
     private TextView txt_calle;
     private Spinner spinner_delegacion;
@@ -37,11 +34,10 @@ public class ReportarActivity extends AppCompatActivity {
 
         btn_fecha = (Button) findViewById(R.id.buttonFecha);
         txt_fecha = (TextView) findViewById(R.id.fecha);
-        radioGroup = (RadioGroup) findViewById(R.id.radioGroupDelitos);
-        delito1 = (RadioButton) findViewById(R.id.radioButtonDelito1);
-        delito2 = (RadioButton) findViewById(R.id.radioButtonDelito2);
-        delito3 = (RadioButton) findViewById(R.id.radioButtonDelito3);
-        delito4 = (RadioButton) findViewById(R.id.radioButtonDelito4);
+        secuestro = (RadioButton) findViewById(R.id.radioButtonSecuestro);
+        extorsion = (RadioButton) findViewById(R.id.radioButtonExtorsion);
+        homicidio = (RadioButton) findViewById(R.id.radioButtonHomicidio);
+        robo = (RadioButton) findViewById(R.id.radioButtonRobo);
         txt_descripcion = (TextView) findViewById(R.id.descripcion);
         txt_calle = (TextView) findViewById(R.id.calle);
         spinner_delegacion = (Spinner) findViewById(R.id.delegacion);
@@ -67,39 +63,39 @@ public class ReportarActivity extends AppCompatActivity {
             }
         });
 
-        delito1.setOnClickListener(new View.OnClickListener() {
+        secuestro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delito2.setChecked(false);
-                delito3.setChecked(false);
-                delito4.setChecked(false);
+                extorsion.setChecked(false);
+                homicidio.setChecked(false);
+                robo.setChecked(false);
             }
         });
 
-        delito2.setOnClickListener(new View.OnClickListener() {
+        extorsion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delito1.setChecked(false);
-                delito3.setChecked(false);
-                delito4.setChecked(false);
+                secuestro.setChecked(false);
+                homicidio.setChecked(false);
+                robo.setChecked(false);
             }
         });
 
-        delito3.setOnClickListener(new View.OnClickListener() {
+        homicidio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delito1.setChecked(false);
-                delito2.setChecked(false);
-                delito4.setChecked(false);
+                secuestro.setChecked(false);
+                extorsion.setChecked(false);
+                robo.setChecked(false);
             }
         });
 
-        delito4.setOnClickListener(new View.OnClickListener() {
+        robo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                delito1.setChecked(false);
-                delito2.setChecked(false);
-                delito3.setChecked(false);
+                secuestro.setChecked(false);
+                extorsion.setChecked(false);
+                homicidio.setChecked(false);
             }
         });
 

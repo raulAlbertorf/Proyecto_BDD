@@ -8,9 +8,9 @@ import android.widget.Button;
 
 public class MenuActivity extends AppCompatActivity {
 
-    Button reportar;
-    Button consultar;
-    Button salir;
+    private Button reportar;
+    private Button consultar;
+    private Button salir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
