@@ -1,7 +1,9 @@
 package com.proyecto.bdd.seguridadcdmx;
 
 import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -17,34 +20,35 @@ import android.widget.Toast;
 
 public class ReportarActivity extends AppCompatActivity {
 
-    private Button btn_fecha;
-    private TextView txt_fecha;
+    private Button btnFecha;
+    private TextView fecha;
     private int dia, mes = 7, ano = 2017;
-    private RadioGroup radioGroup;
+    private RadioGroup delitos;
     private RadioButton secuestro, extorsion, homicidio, robo;
-    private TextView txt_descripcion;
-    private TextView txt_calle;
-    private Spinner spinner_delegacion;
-    private Button btn_reportar;
+    private EditText descripcion;
+    private EditText calle;
+    private Spinner spinnerDelegacion;
+    private Button btnReportar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reportar);
 
-        btn_fecha = (Button) findViewById(R.id.buttonFecha);
-        txt_fecha = (TextView) findViewById(R.id.fecha);
+        btnFecha = (Button) findViewById(R.id.buttonFecha);
+        fecha = (TextView) findViewById(R.id.fecha);
+        delitos = (RadioGroup) findViewById(R.id.radioGroupDelitos);
         secuestro = (RadioButton) findViewById(R.id.radioButtonSecuestro);
         extorsion = (RadioButton) findViewById(R.id.radioButtonExtorsion);
         homicidio = (RadioButton) findViewById(R.id.radioButtonHomicidio);
         robo = (RadioButton) findViewById(R.id.radioButtonRobo);
-        txt_descripcion = (TextView) findViewById(R.id.descripcion);
-        txt_calle = (TextView) findViewById(R.id.calle);
-        spinner_delegacion = (Spinner) findViewById(R.id.delegacion);
-        btn_reportar = (Button) findViewById(R.id.buttonReportar);
+        descripcion = (EditText) findViewById(R.id.descripcion);
+        calle = (EditText) findViewById(R.id.calle);
+        spinnerDelegacion = (Spinner) findViewById(R.id.delegacion);
+        btnReportar = (Button) findViewById(R.id.buttonReportar);
 
 
-        btn_fecha.setOnClickListener(new View.OnClickListener() {
+        btnFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -54,7 +58,7 @@ public class ReportarActivity extends AppCompatActivity {
                         ano = year;
                         mes = month;
                         dia = dayOfMonth;
-                        txt_fecha.setText(new StringBuilder().append(dia) + "/"
+                        fecha.setText(new StringBuilder().append(dia) + "/"
                                 + new StringBuilder().append(mes + 1) + "/"
                                 + new StringBuilder().append(ano));
                     }
@@ -103,8 +107,8 @@ public class ReportarActivity extends AppCompatActivity {
                 "Cuajimalpa", "Cuauhtémoc", "Gustavo A. Madero", "Iztacalco", "Iztapalapa", "Magdalena Contreras",
                 "Miguel Hidalgo", "Milpa Alta", "Tláhuac", "Tlalpan", "Venustiano Carranza", "Xochimilco"};
         ArrayAdapter <String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, delegaciones);
-        spinner_delegacion.setAdapter(adaptador);
-        spinner_delegacion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerDelegacion.setAdapter(adaptador);
+        spinnerDelegacion.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
@@ -181,11 +185,43 @@ public class ReportarActivity extends AppCompatActivity {
             }
         });
 
-        btn_reportar.setOnClickListener(new View.OnClickListener() {
+        btnReportar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ReportarActivity.this, MenuActivity.class);
-                startActivity(i);
+                //validar datos de entrada
+                if (descripcion.length() < 10) {
+                    descripcion.setError("Descripcion muy corta");
+                    descripcion.requestFocus();
+                } else if (calle.length() < 3) {
+                    calle.setError("Calle invalida");
+                    calle.requestFocus();
+                } else if (delitos.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getApplicationContext(), "Selecciona un delito", Toast.LENGTH_LONG).show();
+                }
+                    else if (spinnerDelegacion.getSelectedItemPosition() == 0) {
+                    Toast.makeText(getApplicationContext(), "Selecciona una delegación", Toast.LENGTH_LONG).show();
+                } else {
+                    //create reporte en bd
+                    if (true) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ReportarActivity.this);
+                        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent i = new Intent(ReportarActivity.this, MenuActivity.class);
+                                startActivity(i);
+                            }
+                        });
+                        builder.setTitle("Exito");
+                        builder.setMessage("Tu reporte se ha creado");
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
+                    } else {
+                        AlertDialog alertDialog = new AlertDialog.Builder(ReportarActivity.this).create();
+                        alertDialog.setTitle("Error");
+                        alertDialog.setMessage("Intenta de nuevo");
+                        alertDialog.show();
+                    }
+                }
             }
         });
     }
