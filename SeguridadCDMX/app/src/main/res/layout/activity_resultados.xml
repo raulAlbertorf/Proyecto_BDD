@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.proyecto.bdd.seguridadcdmx.ResultadosActivity">
+
+    <ScrollView
+        android:layout_width="344dp"
+        android:layout_height="495dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Resultados"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="Resultados" />
+
+            <TextView
+                android:id="@+id/textViewDelegacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Delegacion"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="Delegacion" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Consultar"
+                tools:layout_editor_absoluteX="135dp"
+                tools:layout_editor_absoluteY="445dp" />
+
+            <TableLayout
+                android:id="@+id/tablaResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

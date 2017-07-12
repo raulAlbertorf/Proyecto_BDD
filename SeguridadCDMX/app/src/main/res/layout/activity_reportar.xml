@@ -55,7 +55,7 @@
                     android:layout_weight="1"
                     android:text="25/7/2017"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -64,82 +64,77 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Descripción"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewCalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Calle"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/calle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewDelito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Delito"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <RadioGroup
                 android:id="@+id/radioGroupDelitos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:id="@+id/radioButtonSecuestro"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:text="Secuestro"
+                    android:textSize="10sp" />
 
-                    <RadioButton
-                        android:id="@+id/radioButtonSecuestro"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Secuestro"
-                        android:textSize="10sp" />
+                <RadioButton
+                    android:id="@+id/radioButtonExtorsion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Extorsión"
+                    android:textSize="10sp" />
 
-                    <RadioButton
-                        android:id="@+id/radioButtonHomicidio"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Homicidio"
-                        android:textSize="10sp" />
+                <RadioButton
+                    android:id="@+id/radioButtonHomicidio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Homicidio"
+                    android:textSize="10sp" />
 
-                    <RadioButton
-                        android:id="@+id/radioButtonExtorsion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Extorsión"
-                        android:textSize="10sp" />
-
-                    <RadioButton
-                        android:id="@+id/radioButtonRobo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Robo"
-                        android:textSize="10sp" />
-
-                </LinearLayout>
+                <RadioButton
+                    android:id="@+id/radioButtonRobo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Robo"
+                    android:textSize="10sp" />
 
             </RadioGroup>
 
@@ -148,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Delegacion"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <Spinner
                 android:id="@+id/delegacion"
@@ -161,6 +156,7 @@
                 android:id="@+id/buttonReportar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Reportar"
                 android:textSize="24sp"
                 android:textStyle="bold" />

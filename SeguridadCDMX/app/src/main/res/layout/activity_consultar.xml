@@ -124,13 +124,5 @@
 
         </RadioGroup>
 
-        <Button
-            android:id="@+id/buttonPerfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="Perfil"
-            android:textSize="24sp" />
-
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

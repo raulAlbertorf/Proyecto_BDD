@@ -38,49 +38,52 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
                 android:text="Usuario"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/usuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Password"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Email"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/textViewSexo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sexo"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <RadioGroup
                 android:id="@+id/sexo"
@@ -94,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Mujer"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <RadioButton
                     android:id="@+id/hombre"
@@ -102,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Hombre"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
             </RadioGroup>
 
             <TextView
@@ -110,19 +113,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Edad"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/edad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/buttonRegistrarse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="Registrarse"
                 android:textSize="24sp"
                 android:textStyle="bold" />

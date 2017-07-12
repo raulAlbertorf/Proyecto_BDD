@@ -15,7 +15,6 @@ public class ConsultarActivity extends AppCompatActivity {
 
     private Button btnDelegacion;
     private Button btnTipoDelito;
-    private Button btnPerfil;
     private Spinner spinner_delegacion;
     private RadioButton secuestro, extorsion, homicidio, robo;
 
@@ -26,7 +25,6 @@ public class ConsultarActivity extends AppCompatActivity {
 
         btnDelegacion = (Button) findViewById(R.id.buttonDelegacion);
         btnTipoDelito = (Button) findViewById(R.id.buttonTipoDelito);
-        btnPerfil = (Button) findViewById(R.id.buttonPerfil);
         spinner_delegacion = (Spinner) findViewById(R.id.spinnerDelegacion);
         secuestro = (RadioButton) findViewById(R.id.radioButtonSecuestro);
         extorsion = (RadioButton) findViewById(R.id.radioButtonExtorsion);
@@ -38,9 +36,10 @@ public class ConsultarActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int opcion = spinner_delegacion.getSelectedItemPosition();
                 if (opcion != 0) {
-                    Intent i = new Intent(ConsultarActivity.this, DelegacionActivity.class);
-                    i.putExtra("delegacion", spinner_delegacion.getSelectedItem().toString());
+                    Intent i = new Intent(ConsultarActivity.this, ResultadosActivity.class);
+                    i.putExtra("consulta", spinner_delegacion.getSelectedItem().toString());
                     startActivity(i);
+                    //la consulta se hace en la prox activity
                 }
                 else {
                     Toast t = Toast.makeText(getApplicationContext(), "Selecciona una delegación", Toast.LENGTH_LONG);
@@ -53,27 +52,21 @@ public class ConsultarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (secuestro.isChecked() || extorsion.isChecked() || homicidio.isChecked() || robo.isChecked()) {
-                    Intent i = new Intent(ConsultarActivity.this, TipoActivity.class);
+                    Intent i = new Intent(ConsultarActivity.this, ResultadosActivity.class);
                     if (secuestro.isChecked())
-                        i.putExtra("delito", secuestro.getText());
+                        i.putExtra("consulta", secuestro.getText());
                     if (extorsion.isChecked())
-                        i.putExtra("delito", extorsion.getText());
+                        i.putExtra("consulta", extorsion.getText());
                     if (homicidio.isChecked())
-                        i.putExtra("delito", homicidio.getText());
+                        i.putExtra("consulta", homicidio.getText());
                     if (robo.isChecked())
-                        i.putExtra("delito", robo.getText());
+                        i.putExtra("consulta", robo.getText());
                     startActivity(i);
+                    //la consulta se hace en la prox activity
                 } else {
                     Toast t = Toast.makeText(getApplicationContext(), "Selecciona un delito", Toast.LENGTH_LONG);
                     t.show();
                 }
-            }
-        });
-
-        btnPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
